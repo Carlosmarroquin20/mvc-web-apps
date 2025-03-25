@@ -13,16 +13,21 @@ namespace mvc_web_apps.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            User user = new User
-            {
-                Name = "Ema",
-                Email = "ema@example.com",
-                Age = 21
-            };
+            return View();  // Muestra el formulario vacío
+        }
 
-            return View(user);  // Pasamos el objeto User a la vista
+        [HttpPost]
+        public IActionResult Index(User user)
+        {
+            // Aquí, `user` contiene los datos enviados desde el formulario
+            ViewData["Message"] = $"Welcome {user.Name}!";
+            ViewData["UserEmail"] = user.Email;
+            ViewData["UserAge"] = user.Age;
+
+            return View();  // Vuelve a mostrar la vista con los datos ingresados
         }
 
         public IActionResult Privacy()

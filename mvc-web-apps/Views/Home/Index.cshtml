@@ -1,4 +1,4 @@
-﻿@model mvc_web_apps.Models.User  
+﻿@model mvc_web_apps.Models.User
 
 @{
     ViewData["Title"] = "Home Page";
@@ -6,8 +6,29 @@
 
 <div class="text-center">
     <h1 class="display-4">@ViewData["Message"]</h1>
-    <p>Welcome, @Model.Name!</p>  <!-- Usamos @Model para acceder a las propiedades del objeto User -->
-    <p>Email: @Model.Email</p>
-    <p>Age: @Model.Age</p>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <form method="post">
+        <div>
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" name="Name" required />
+        </div>
+        <div>
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" name="Email" required />
+        </div>
+        <div>
+            <label for="Age">Age:</label>
+            <input type="number" id="Age" name="Age" required />
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    @if (ViewData["UserEmail"] != null)
+    {
+        <div>
+            <h2>Your Submitted Information:</h2>
+            <p>Name: @ViewData["Message"]</p>
+            <p>Email: @ViewData["UserEmail"]</p>
+            <p>Age: @ViewData["UserAge"]</p>
+        </div>
+    }
 </div>
