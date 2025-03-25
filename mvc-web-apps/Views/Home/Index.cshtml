@@ -4,31 +4,35 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">@ViewData["Message"]</h1>
-    <form method="post">
-        <div>
-            <label for="Name">Name:</label>
-            <input type="text" id="Name" name="Name" required />
+<div class="container mt-5">
+    <h1 class="display-4 text-center">@ViewData["Message"]</h1>
+
+    <form method="post" class="mx-auto" style="max-width: 500px;">
+        <div class="mb-3">
+            <label for="Name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="Name" name="Name" required />
         </div>
-        <div>
-            <label for="Email">Email:</label>
-            <input type="email" id="Email" name="Email" required />
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="Email" name="Email" required />
         </div>
-        <div>
-            <label for="Age">Age:</label>
-            <input type="number" id="Age" name="Age" required />
+        <div class="mb-3">
+            <label for="Age" class="form-label">Age:</label>
+            <input type="number" class="form-control" id="Age" name="Age" required />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
     </form>
 
+    <!-- Mostrar la información ingresada -->
     @if (ViewData["UserEmail"] != null)
     {
-        <div>
+        <div class="mt-4 p-4 border rounded">
             <h2>Your Submitted Information:</h2>
-            <p>Name: @ViewData["Message"]</p>
-            <p>Email: @ViewData["UserEmail"]</p>
-            <p>Age: @ViewData["UserAge"]</p>
+            <p><strong>Name:</strong> @ViewData["Message"]</p>
+            <p><strong>Email:</strong> @ViewData["UserEmail"]</p>
+            <p><strong>Age:</strong> @ViewData["UserAge"]</p>
         </div>
     }
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
