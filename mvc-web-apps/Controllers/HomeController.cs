@@ -15,9 +15,14 @@ namespace mvc_web_apps.Controllers
 
         public IActionResult Index()
         {
-            ViewData["Message"] = "Welcome to Ema322's page!";
-            ViewData["UserName"] = "Ema";
-            return View();
+            User user = new User
+            {
+                Name = "Ema",
+                Email = "ema@example.com",
+                Age = 21
+            };
+
+            return View(user);  // Pasamos el objeto User a la vista
         }
 
         public IActionResult Privacy()

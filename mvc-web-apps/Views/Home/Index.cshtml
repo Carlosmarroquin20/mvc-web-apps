@@ -1,9 +1,13 @@
-﻿@{
+﻿@model mvc_web_apps.Models.User  
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">@ViewData["Message"]</h1>
-    <p>Welcome, @ViewData["UserName"]!</p>
+    <p>Welcome, @Model.Name!</p>  <!-- Usamos @Model para acceder a las propiedades del objeto User -->
+    <p>Email: @Model.Email</p>
+    <p>Age: @Model.Age</p>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
